@@ -13,7 +13,6 @@
 - Supports all color scales from 0 to 1000, in addition to the default 50, 100, 200, ..., 900, 950 scales
 - Supports transparency settings `bg-red-25/10`
 - Supports custom colors `bg-[@theme color]-25`
-- Generates utility classes on-demand, avoiding a large number of `suggest` statements that could cause **IDE lag**
 
 ## 📦 Installation
 
