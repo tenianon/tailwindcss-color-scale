@@ -1,0 +1,19 @@
+@import "tailwindcss" source(none);
+
+@source "./index.html";
+
+@theme {
+  --color-test-50: #111;
+  --color-test-100: #222;
+  --color-test-200: #333;
+  --color-test-300: #444;
+  --color-test-400: #555;
+  --color-test-500: #666;
+  --color-test-600: #777;
+  --color-test-700: #888;
+  --color-test-800: #999;
+  --color-test-900: #aaa;
+  --color-test-950: #fff;
+}
+
+@plugin "../src/index.ts";

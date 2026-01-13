@@ -1,0 +1,38 @@
+{
+  "name": "tailwindcss-color-scale",
+  "version": "0.0.1",
+  "description": "Tailwind CSS Color Scale Plugin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tenianon/tailwindcss-color-scale.git"
+  },
+  "bugs": "https://github.com/tenianon/tailwindcss-color-scale/issues",
+  "keywords": [
+    "tailwindcss",
+    "color",
+    "scale",
+    "plugin"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "cli:input": "tailwindcss -i ./example/input.css -o ./example/output.css",
+    "build": "bun build ./src/index.ts --outdir dist --target node --format esm --minify"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^5"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "@types/bun": "latest"
+  },
+  "dependencies": {
+    "tailwindcss": "^4.1.18"
+  }
+}
