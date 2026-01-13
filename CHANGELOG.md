@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.2] - 2026-01-14
+
+### Fixed
+- Downgrade tailwindcss peer dependency from ^5 to ^4
+
+### Changed
+- Update README
+
 ## [0.0.1] - 2026-01-14
 
 ### Added
