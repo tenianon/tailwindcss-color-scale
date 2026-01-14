@@ -30,7 +30,7 @@ pnpm add tailwindcss-color-scale -D
 bun add tailwindcss-color-scale -D
 ```
 
-## 🚀 Quick Start
+## 🚀 Usage
 
 Include the plugin in your CSS file:
 
@@ -48,7 +48,7 @@ Now you can use any color scale value from 0 to 1000:
 
 <!-- Custom color scales -->
 <div class="bg-red-123">Custom Red 123</div>
-<div class="bg-blue-567">Custom Blue 567</div>
+<div class="bg-blue-456">Custom Blue 567</div>
 <div class="bg-green-789">Custom Green 789</div>
 ```
 
@@ -123,24 +123,24 @@ The plugin supports all Tailwind CSS color-related utility classes:
 
 ```css
 @theme {
-  --color-brand-50: #f0f9ff;
-  --color-brand-100: #e0f2fe;
-  --color-brand-200: #bae6fd;
-  --color-brand-300: #7dd3fc;
-  --color-brand-400: #38bdf8;
-  --color-brand-500: #0ea5e9;
-  --color-brand-600: #0284c7;
-  --color-brand-700: #0369a1;
-  --color-brand-800: #075985;
-  --color-brand-900: #0c4a6e;
-  --color-brand-950: #082f49;
+  --color-custom-50: #f0f9ff;
+  --color-custom-100: #e0f2fe;
+  --color-custom-200: #bae6fd;
+  --color-custom-300: #7dd3fc;
+  --color-custom-400: #38bdf8;
+  --color-custom-500: #0ea5e9;
+  --color-custom-600: #0284c7;
+  --color-custom-700: #0369a1;
+  --color-custom-800: #075985;
+  --color-custom-900: #0c4a6e;
+  --color-custom-950: #082f49;
 }
 ```
 
 ```html
 <!-- Use any color scale with a custom color palette -->
-<div class="bg-brand-375">Brand Color 375</div>
-<div class="text-brand-625">Brand Color 625</div>
+<div class="bg-custom-375">Custom Color 375</div>
+<div class="text-custom-625">Custom Color 625</div>
 ```
 
 ## 🔍 Technical Details
@@ -171,11 +171,24 @@ The following cases will be ignored and fall back to Tailwind CSS default behavi
 
 #### Why doesn't the CSS preview tooltip appear when hovering over a class name?
 
-- This seems to be an issue with the [Tailwind CSS Intellisense](https://github.com/tailwindlabs/tailwindcss-intellisense) extension plugin. You can add the following configuration to your editor settings:
+- This seems to be a lazy implementation of the [Tailwind CSS Intellisense](https://github.com/tailwindlabs/tailwindcss-intellisense) extension. You can add the following configuration to your IDE settings
 
 ```json
 // settings.json
 {
   "tailwindCSS.experimental.configFile": "your CSS file path"
 }
+```
+
+#### Why do classes like `to-red-56` and `shadow-red-56` generate slightly different output compared to `to-red-50`?
+
+- Classes like `to-red-50` and `shadow-red-50` generate additional `@property` variables. The plugin currently cannot handle these variables, and attempting to generate them would cause significant output duplication.
+
+- You can include `to-transparent` or `shadow-transparent` in comments, which allows Tailwind CSS to scan and generate the necessary `@property` declarations.
+
+```html
+<!-- to-transparent -->
+<div class="to-red-56"></div>
+<!-- shadow-transparent -->
+<div class="shadow-red-56"></div>
 ```
