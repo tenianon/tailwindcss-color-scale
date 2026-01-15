@@ -1,8 +1,6 @@
 import plugin from "tailwindcss/plugin";
 import flattenColorPalette from "./utils/flattenColorPalette";
 
-const DEFAULT_SCALE = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
-
 type NamedUtilityValue = {
   kind: "named";
   value: string;
@@ -12,6 +10,8 @@ type NamedUtilityValue = {
 type CssInJs = {
   [key: string]: string | string[] | CssInJs | CssInJs[];
 };
+
+const DEFAULT_SCALE = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
 
 const PLUGIN_PREFIX = "@";
 
@@ -78,7 +78,7 @@ function generateColorMix(color: string, scale: number): string {
   return `${PLUGIN_PREFIX}color-mix(in oklch,var(--color-${color}-${upper}) ${percentage}%,var(--color-${color}-${lower}))`;
 }
 
-export default plugin(({ matchUtilities, theme, addBase }) => {
+export default plugin(({ matchUtilities, theme }) => {
   const allColorKeys = Object.keys(flattenColorPalette(theme("color")));
 
   const allColorKeysSet = new Set(allColorKeys);

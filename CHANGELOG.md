@@ -10,7 +10,7 @@
 
 ### Fixed
 
-- Downgrade tailwindcss peer dependency from ^5 to ^4
+- Fix tailwindcss peer dependency to v4
 
 ### Changed
 
