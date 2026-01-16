@@ -171,10 +171,9 @@ The following cases will be ignored and fall back to Tailwind CSS default behavi
 
 #### Why doesn't the CSS preview tooltip appear when hovering over a class name?
 
-- This seems to be a lazy implementation of the [Tailwind CSS Intellisense](https://github.com/tailwindlabs/tailwindcss-intellisense) extension. You can add the following configuration to your IDE settings
+- This seems to be a lazy implementation of the [Tailwind CSS Intellisense](https://github.com/tailwindlabs/tailwindcss-intellisense) extension. You can add the following configuration to your IDE settings.
 
 ```json
-// settings.json
 {
   "tailwindCSS.experimental.configFile": "your CSS file path"
 }
