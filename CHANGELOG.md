@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.0.4] - 2026-01-18
+
+### Fixed
+
+- Fix opacity modifier not working
+
 ## [0.0.3] - 2026-01-15
 
 ### Fixed

@@ -13,7 +13,7 @@ type CssInJs = {
 
 const DEFAULT_SCALE = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
 
-const PLUGIN_PREFIX = "@";
+const PLUGIN_PREFIX = "_@_";
 
 function extractColorName(value: string): string {
   const match = value.match(/^(.+)-\d+$/);
@@ -22,9 +22,11 @@ function extractColorName(value: string): string {
 
 function generateUtility(cssGen: (color: string) => CssInJs) {
   return (value: string) => {
-    if (value?.[0] === PLUGIN_PREFIX) {
-      return cssGen(value.slice(1));
+    if (value?.includes(PLUGIN_PREFIX)) {
+      const color = value.split(PLUGIN_PREFIX).join("");
+      return cssGen(color);
     }
+
     return {};
   };
 }
@@ -156,6 +158,8 @@ export default plugin(({ matchUtilities, theme }) => {
       type: "color",
       values: {
         __BARE_VALUE__: (bare: NamedUtilityValue) => {
+          // console.log(bare)
+
           // red-123 => red 123
           const match = bare.value.match(/^(.+)-(\d+)$/);
           if (!match || !match[1] || !match[2]) {
