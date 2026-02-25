@@ -158,7 +158,6 @@ export default plugin(({ matchUtilities, theme }) => {
       type: "color",
       values: {
         __BARE_VALUE__: (bare: NamedUtilityValue) => {
-          // console.log(bare)
 
           // red-123 => red 123
           const match = bare.value.match(/^(.+)-(\d+)$/);
