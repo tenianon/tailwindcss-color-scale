@@ -96,6 +96,8 @@ The plugin supports all Tailwind CSS color-related utility classes:
 <p class="border-b-red-56"></p>
 <p class="border-l-red-56"></p>
 <p class="border-r-red-56"></p>
+<p class="border-bs-red-56"></p>
+<p class="border-be-red-56"></p>
 <!-- divide -->
 <p class="divide-red-56"></p>
 <!-- outline -->
