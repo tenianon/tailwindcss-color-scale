@@ -85,7 +85,7 @@ export default plugin(({ matchUtilities, theme }) => {
 
   const allColorKeysSet = new Set(allColorKeys);
   const defaultColorKeys = new Set(
-    allColorKeys.map((key) => extractColorName(key))
+    allColorKeys.map((key) => extractColorName(key)),
   );
 
   matchUtilities(
@@ -131,6 +131,12 @@ export default plugin(({ matchUtilities, theme }) => {
       })),
       "border-l": generateUtility((color) => ({ "border-left-color": color })),
       "border-r": generateUtility((color) => ({ "border-right-color": color })),
+      "border-bs": generateUtility((color) => ({
+        "border-block-start-color": color,
+      })),
+      "border-be": generateUtility((color) => ({
+        "border-block-end-color": color,
+      })),
       divide: generateUtility((color) => ({
         ":where(& > :not(:last-child))": { "border-color": color },
       })),
@@ -158,7 +164,6 @@ export default plugin(({ matchUtilities, theme }) => {
       type: "color",
       values: {
         __BARE_VALUE__: (bare: NamedUtilityValue) => {
-
           // red-123 => red 123
           const match = bare.value.match(/^(.+)-(\d+)$/);
           if (!match || !match[1] || !match[2]) {
@@ -191,6 +196,6 @@ export default plugin(({ matchUtilities, theme }) => {
           return generateColorMix(color, scale);
         },
       } as any,
-    }
+    },
   );
 });
