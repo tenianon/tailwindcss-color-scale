@@ -29,10 +29,10 @@
     "tailwindcss": "^4"
   },
   "devDependencies": {
-    "@tailwindcss/cli": "^4.1.18",
+    "@tailwindcss/cli": "^4.2.1",
     "@types/bun": "latest"
   },
   "dependencies": {
-    "tailwindcss": "^4"
+    "tailwindcss": "^4.2.1"
   }
 }
